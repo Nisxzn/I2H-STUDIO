@@ -1,0 +1,43 @@
+<!-- templates/index.html -->
+{% extends 'layout.html' %}
+{% block title %}Image to HTML/CSS Conversion{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="left">
+        <h3>Upload UI Image</h3>
+        
+        <div id="previewBox">
+            <div id="uploadContainer">
+                <input type="file" id="imageInput" accept="image/*">
+            </div>
+            <img id="previewImg" alt="Preview" style="max-width:100%; max-height: 380px; display:none;">
+        </div>
+        
+        <button id="convertBtn">Convert</button>
+        
+        <div id="statusMessage" style="display:none; text-align: center; margin-top: 1rem; color: var(--accent-primary); font-weight: 500;"></div>
+        
+        <div id="downloadButtons" style="display:none; margin-top: 15px; gap: 10px; display: flex; flex-direction: row;">
+                <button id="downloadHtmlBtn" class="download-btn">Download HTML</button>
+                <button id="downloadCssBtn" class="download-btn">Download CSS</button>
+        </div>
+
+    </div>
+
+    <div class="right">
+        <h3>Generated HTML</h3>
+        <textarea id="htmlOutput" readonly></textarea>
+        <h3>Generated CSS</h3>
+        <textarea id="cssOutput" readonly></textarea>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/convert.js') }}"></script>
+{% endblock %}

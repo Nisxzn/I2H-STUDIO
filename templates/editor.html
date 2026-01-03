@@ -1,0 +1,102 @@
+<!-- templates/editor.html -->
+{% extends 'layout.html' %}
+
+{% block title %}HTML Editor{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Left Sidebar: Elements & Controls -->
+    <div class="left">
+        <div class="toolbar">
+            <h2>Toolbar</h2>
+            <div class="toolbar-actions">
+                <button id="loadGeneratedBtn" class="toolbar-btn primary">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Load Generated
+                </button>
+                <button id="exportCodeBtn" class="toolbar-btn secondary">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                        <polyline points="17 21 17 13 7 13 7 21" />
+                        <polyline points="7 3 7 8 15 8" />
+                    </svg>
+                    Export Code
+                </button>
+                <button id="clearAllBtn" class="toolbar-btn danger">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                    </svg>
+                    Clear All
+                </button>
+            </div>
+        </div>
+
+        <div class="tags-section">
+            <h3>HTML Elements</h3>
+            <div id="tagButtonList" class="tag-button-list">
+                <!-- Dynamically generated tag buttons -->
+            </div>
+        </div>
+
+        <div id="tagDetailsPanel" class="tag-details-panel" style="display: none;">
+            <div class="details-header">
+                <h3 id="selectedTagName"></h3>
+                <button id="closeDetailsBtn" class="close-btn">×</button>
+            </div>
+            <div id="tagDetails" class="tag-details">
+                <!-- Dynamically generated tag details -->
+            </div>
+            <div class="details-footer">
+                <button id="applyUpdatesBtn" class="apply-btn">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Apply Changes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel: Live Preview -->
+    <div class="right">
+        <div class="preview-header">
+            <h2>Live Preview</h2>
+            <div class="preview-controls">
+                <button id="refreshPreviewBtn" class="icon-btn" title="Refresh Preview">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 4 23 10 17 10" />
+                        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                    </svg>
+                </button>
+                <button id="toggleDeviceBtn" class="icon-btn" title="Toggle Device Frame">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                        <line x1="12" y1="18" x2="12.01" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="previewBox" class="preview-container">
+            <iframe id="previewFrame" sandbox></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+{% endblock %}
