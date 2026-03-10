@@ -93,5 +93,5 @@
 This project is licensed under the MIT License.
 
 <div align="center">
-  <sub>Built with ❤️ by Nisxzn and Antigravity</sub>
+  <sub>Built with ❤️ by Nisxzn & Team</sub>
 </div>
