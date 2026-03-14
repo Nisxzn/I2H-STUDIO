@@ -6,3 +6,4 @@ beautifulsoup4
 google-generativeai
 pillow
 gunicorn
+uvicorn
