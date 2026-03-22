@@ -1,4 +1,4 @@
-# ⚡ I2H STUDIO - Image to HTML/CSS Converter
+# I2H STUDIO - Image to HTML/CSS Converter
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/Nisxzn/I2H-STUDIO/main/static/img/logo.png" alt="I2H Studio Logo" width="120" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1157/1157109.png'"/>
